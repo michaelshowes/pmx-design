@@ -5,7 +5,7 @@ import {
 
 type ButtonBaseProps = Pick<
 	MuiButtonProps,
-	'disabled' | 'startIcon' | 'endIcon' | 'variant' | 'color' | 'size'
+	'disabled' | 'startIcon' | 'endIcon' | 'variant' | 'color' | 'size' | 'onClick'
 >;
 
 export interface ButtonProps extends ButtonBaseProps {

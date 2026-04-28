@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn } from 'storybook/test';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/Star';
@@ -12,7 +13,8 @@ const meta: Meta<typeof Button> = {
 		variant: 'contained',
 		color: 'primary',
 		size: 'medium',
-		disabled: false
+		disabled: false,
+		onClick: fn()
 	},
 	argTypes: {
 		variant: {
@@ -60,18 +62,32 @@ type Story = StoryObj<typeof Button>;
 
 // ─── Playground ──────────────────────────────────────────────────────────────
 
-export const Default: Story = {};
+export const Default: Story = {
+	play: async ({ canvas }) => {
+		const button = canvas.getByRole('button', { name: 'Button' });
+		await expect(button).toBeEnabled();
+		await expect(button).toHaveClass('MuiButton-contained');
+	}
+};
 
 // ─── Type ────────────────────────────────────────────────────────────────────
 
 export const Primary: Story = {
 	name: 'Type: Primary (Contained)',
-	args: { variant: 'contained' }
+	args: { variant: 'contained' },
+	play: async ({ canvas }) => {
+		const button = canvas.getByRole('button', { name: 'Button' });
+		await expect(button).toHaveClass('MuiButton-contained');
+	}
 };
 
 export const Outlined: Story = {
 	name: 'Type: Outlined',
-	args: { variant: 'outlined' }
+	args: { variant: 'outlined' },
+	play: async ({ canvas }) => {
+		const button = canvas.getByRole('button', { name: 'Button' });
+		await expect(button).toHaveClass('MuiButton-outlined');
+	}
 };
 
 export const Text: Story = {
@@ -102,7 +118,11 @@ export const SizeSmall: Story = {
 
 export const DisabledContained: Story = {
 	name: 'State: Disabled — Primary',
-	args: { disabled: true }
+	args: { disabled: true },
+	play: async ({ canvas }) => {
+		const button = canvas.getByRole('button', { name: 'Button' });
+		await expect(button).toBeDisabled();
+	}
 };
 
 export const DisabledOutlined: Story = {
