@@ -16,16 +16,9 @@ import '@fontsource/material-icons';
 import { withMuiTheme } from './with-mui-theme.decorator';
 
 export const parameters = {
-	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
 		expanded: true // Adds the description and default columns
 	}
-	// darkMode: {
-	//   // Override the default dark theme
-	//   dark: { ...themes, appBg: 'black' },
-	//   // Override the default light theme
-	//   light: { ...themes.normal, appBg: 'red' }
-	// }
 };
 
 export const globalTypes = {

@@ -48,8 +48,8 @@ export default function Gauge({
 	const getText =
 		type === 'status'
 			? () => status.charAt(0).toUpperCase() + status.slice(1)
-			: ({ value: v, valueMax: max }: { value: number; valueMax: number }) =>
-					`${v}/${max}`;
+			: ({ value: v, valueMax: max }: { value: number | null; valueMax: number }) =>
+					`${v ?? 0}/${max}`;
 
 	const gaugeValue =
 		type === 'status'

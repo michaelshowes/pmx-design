@@ -86,7 +86,7 @@ export default function Plot({
 
 	const colors = plotType === 'stackedBars' ? stackedColors : graphColors;
 
-	const legendProps = getLegendProps(legend);
+	const legendSlotProps = { legend: getLegendProps(legend) } as Record<string, unknown>;
 
 	if (plotType === 'blank') {
 		return (
@@ -136,7 +136,7 @@ export default function Plot({
 				series={[{ data: pieSeries }]}
 				width={width}
 				height={height}
-				slotProps={{ legend: legendProps }}
+				slotProps={legendSlotProps}
 			/>
 		);
 	}
@@ -156,7 +156,7 @@ export default function Plot({
 				width={width}
 				height={height}
 				yAxis={yAxis}
-				slotProps={{ legend: legendProps }}
+				slotProps={legendSlotProps}
 			/>
 		);
 	}
@@ -175,7 +175,7 @@ export default function Plot({
 				yAxis={yAxis}
 				width={width}
 				height={height}
-				slotProps={{ legend: legendProps }}
+				slotProps={legendSlotProps}
 			>
 				{referenceLine != null && (
 					<ChartsReferenceLine y={referenceLine} />
@@ -199,7 +199,7 @@ export default function Plot({
 			yAxis={yAxis}
 			width={width}
 			height={height}
-			slotProps={{ legend: legendProps }}
+			slotProps={legendSlotProps}
 		>
 			{referenceLine != null && (
 				<ChartsReferenceLine y={referenceLine} />
@@ -210,30 +210,27 @@ export default function Plot({
 
 function getLegendProps(legend: LegendPosition) {
 	if (legend === 'none') {
-		return { legend: { hidden: true } };
+		return { hidden: true as const };
 	}
 
-	const positionMap: Record<
-		Exclude<LegendPosition, 'none'>,
-		{ direction: 'row' | 'column'; position: { vertical: 'top' | 'bottom' | 'middle'; horizontal: 'left' | 'middle' | 'right' } }
-	> = {
+	const positionMap = {
 		top: {
-			direction: 'row',
-			position: { vertical: 'top', horizontal: 'middle' },
+			direction: 'horizontal' as const,
+			position: { vertical: 'top' as const, horizontal: 'center' as const },
 		},
 		bottom: {
-			direction: 'row',
-			position: { vertical: 'bottom', horizontal: 'middle' },
+			direction: 'horizontal' as const,
+			position: { vertical: 'bottom' as const, horizontal: 'center' as const },
 		},
 		right: {
-			direction: 'column',
-			position: { vertical: 'middle', horizontal: 'right' },
+			direction: 'vertical' as const,
+			position: { vertical: 'middle' as const, horizontal: 'end' as const },
 		},
 		left: {
-			direction: 'column',
-			position: { vertical: 'middle', horizontal: 'left' },
+			direction: 'vertical' as const,
+			position: { vertical: 'middle' as const, horizontal: 'start' as const },
 		},
 	};
 
-	return { legend: positionMap[legend] };
+	return positionMap[legend];
 }

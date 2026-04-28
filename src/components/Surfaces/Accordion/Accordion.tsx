@@ -2,7 +2,7 @@ import {
 	Accordion as MuiAccordion,
 	type AccordionProps as MuiAccordionProps,
 	AccordionSummary,
-	AccordionDetails,
+	AccordionDetails
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -39,11 +39,11 @@ export default function Accordion({
 				borderRadius: '4px !important',
 				boxShadow: '0px 1px 1px rgba(0,0,0,0.25)',
 				'&::before': {
-					display: 'none',
+					display: 'none'
 				},
 				'&.Mui-expanded': {
-					margin: 0,
-				},
+					margin: 0
+				}
 			}}
 			{...rest}
 		>
@@ -56,11 +56,11 @@ export default function Accordion({
 					'& .MuiAccordionSummary-content': {
 						margin: 0,
 						fontWeight: 500,
-						fontSize: 16,
+						fontSize: 16
 					},
 					'& .MuiAccordionSummary-expandIconWrapper': {
-						color: theme.palette.text.primary,
-					},
+						color: theme.palette.text.primary
+					}
 				}}
 			>
 				{title}
@@ -69,7 +69,7 @@ export default function Accordion({
 				sx={{
 					px: '16px',
 					pt: 0,
-					pb: isPrimary ? '20px' : '12px',
+					pb: isPrimary ? '20px' : '12px'
 				}}
 			>
 				{children}

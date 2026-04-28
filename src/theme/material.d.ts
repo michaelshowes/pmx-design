@@ -182,28 +182,6 @@ declare module "@mui/material/styles" {
     boxShadow?: string; // Box shadow for DX Overwrite MUI default box shadow with our custom option
   }
 
-  // Extend the MUI theme options to include our custom palette options
-  interface Theme {
-    palette: {
-      scale: ScalePalette;
-      layout: LayoutPalette;
-      graph: GraphPalette;
-      stackedBars: StackedBarsPalette;
-      operationalReadiness: OperationalReadinessPalette;
-    };
-  }
-
-  // Extend the MUI theme options to include our custom palette options
-  interface ThemeOptions {
-    palette: {
-      scale?: Partial<ScalePalette>;
-      layout?: Partial<LayoutPalette>;
-      graph?: Partial<GraphPalette>;
-      stackedBars?: Partial<StackedBarsPalette>;
-      operationalReadiness?: Partial<OperationalReadinessPalette>;
-    };
-  }
-
   // Extend the default MUI typography variants to include our custom h7 variant
   interface TypographyVariants {
     h7: React.CSSProperties;
@@ -222,6 +200,17 @@ declare module "@mui/material/styles" {
     appNameRegular?: React.CSSProperties;
     appNameBold?: React.CSSProperties;
     appNameLight?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    h7: true;
+    body3: true;
+    body4: true;
+    appNameRegular: true;
+    appNameBold: true;
+    appNameLight: true;
   }
 }
 
