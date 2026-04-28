@@ -1,78 +1,83 @@
 import type { TypographyVariantsOptions } from "@mui/material";
+import {
+  fontFamily,
+  fontWeight,
+  typographyTokens as t,
+} from "../../tokens/typography";
 
 // Base typography settings for the design system
 export const typography: TypographyVariantsOptions = {
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontFamily: fontFamily.roboto,
   fontSize: 14,
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 500,
+  fontWeightLight: fontWeight.light,
+  fontWeightRegular: fontWeight.regular,
+  fontWeightMedium: fontWeight.medium,
   h1: {
-    fontSize: 96,
-    fontWeight: 300,
+    fontSize: t.h1.fontSize,
+    fontWeight: t.h1.fontWeight,
   },
   h2: {
-    fontSize: 60,
-    fontWeight: 300,
+    fontSize: t.h2.fontSize,
+    fontWeight: t.h2.fontWeight,
   },
   h3: {
-    fontSize: 48,
-    fontWeight: 400,
+    fontSize: t.h3.fontSize,
+    fontWeight: t.h3.fontWeight,
   },
   h4: {
-    fontSize: 34,
-    fontWeight: 400,
+    fontSize: t.h4.fontSize,
+    fontWeight: t.h4.fontWeight,
   },
   h5: {
-    fontSize: 24,
-    fontWeight: 400,
+    fontSize: t.h5.fontSize,
+    fontWeight: t.h5.fontWeight,
   },
   h6: {
-    fontSize: 20,
-    fontWeight: 500,
+    fontSize: t.h6.fontSize,
+    fontWeight: t.h6.fontWeight,
   },
   h7: {
-    fontSize: 20,
-    fontWeight: 400,
+    fontSize: t.h7.fontSize,
+    fontWeight: t.h7.fontWeight,
   },
   subtitle1: {
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: t.subtitle1.fontSize,
+    fontWeight: t.subtitle1.fontWeight,
   },
   subtitle2: {
-    fontSize: 14,
-    fontWeight: 500,
+    fontSize: t.subtitle2.fontSize,
+    fontWeight: t.subtitle2.fontWeight,
   },
   body1: {
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: t.body1.fontSize,
+    fontWeight: t.body1.fontWeight,
   },
   body2: {
-    fontSize: 16,
-    fontWeight: 500,
+    fontSize: t.body2.fontSize,
+    fontWeight: t.body2.fontWeight,
   },
   body3: {
-    fontSize: 14,
-    fontWeight: 400,
+    fontSize: t.body3.fontSize,
+    fontWeight: t.body3.fontWeight,
   },
   body4: {
-    fontSize: 16,
-    fontWeight: 500,
+    fontSize: t.body4.fontSize,
+    fontWeight: t.body4.fontWeight,
   },
   button: {
-    fontSize: 14,
-    fontWeight: 500,
+    fontSize: t.button.fontSize,
+    fontWeight: t.button.fontWeight,
   },
   appNameLight: {
-    fontSize: 24,
-    fontWeight: 300,
+    fontSize: t.appNameLight.fontSize,
+    fontWeight: t.appNameLight.fontWeight,
   },
   appNameRegular: {
-    fontSize: 24,
-    fontWeight: 400,
+    fontSize: t.appNameRegular.fontSize,
+    fontWeight: t.appNameRegular.fontWeight,
   },
   appNameBold: {
-    fontSize: 24,
-    fontWeight: 700,
+    fontSize: t.appNameBold.fontSize,
+    fontWeight: t.appNameBold.fontWeight,
   },
 };

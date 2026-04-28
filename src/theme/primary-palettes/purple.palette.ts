@@ -1,39 +1,40 @@
-// src/themes/dark.theme.js
-
 import type { PaletteColor } from "@mui/material/styles";
+import { primary } from "../../tokens/colors";
 import { createPalette } from "../base/createPalette";
+
+const purple = primary.purple;
 
 export const darkPalette: PaletteColor = {
   white: "#ffffff",
   black: "#000000",
-  l80: "#f3e9ff",
-  l60: "#e7d3ff",
-  l40: "#dabeff",
-  l20: "#cea8ff",
-  light: "#cea8ff",
-  main: "#c292ff",
-  dark: "#9b75cc",
-  d20: "#9b75cc",
-  d40: "#745899",
-  d60: "#4e3a66",
-  d80: "#271d33",
+  l80: purple.dark.l80,
+  l60: purple.dark.l60,
+  l40: purple.dark.l40,
+  l20: purple.dark.l20,
+  light: purple.dark.l20,
+  main: purple.dark.main,
+  dark: purple.dark.d20,
+  d20: purple.dark.d20,
+  d40: purple.dark.d40,
+  d60: purple.dark.d60,
+  d80: purple.dark.d80,
   contrastText: "#ffffff",
 };
 
 export const lightPalette: PaletteColor = {
   white: "#ffffff",
   black: "#000000",
-  l80: "#e4cef9",
-  l60: "#ca9ef3",
-  l40: "#af6dec",
-  l20: "#953de6",
-  light: "#953de6",
-  main: "#7a0ce0",
-  dark: "#620ab3",
-  d20: "#620ab3",
-  d40: "#490786",
-  d60: "#31055a",
-  d80: "#18022d",
+  l80: purple.light.l80,
+  l60: purple.light.l60,
+  l40: purple.light.l40,
+  l20: purple.light.l20,
+  light: purple.light.l20,
+  main: purple.light.main,
+  dark: purple.light.d20,
+  d20: purple.light.d20,
+  d40: purple.light.d40,
+  d60: purple.light.d60,
+  d80: purple.light.d80,
   contrastText: "#ffffff",
 };
 

@@ -1,22 +1,23 @@
-// src/themes/dark.theme.js
-
 import type { PaletteColor } from "@mui/material/styles";
+import { primary } from "../../tokens/colors";
 import { createPalette } from "../base/createPalette";
+
+const army = primary.army;
 
 export const darkPalette: PaletteColor = {
   white: "#ffffff",
   black: "#000000",
-  l80: "#fff7d6",
-  l60: "#ffeeac",
-  l40: "#ffe683",
-  l20: "#ffdd59",
-  light: "#ffdd59",
-  main: "#ffd530",
-  dark: "#ccaa26",
-  d20: "#ccaa26",
-  d40: "#99801d",
-  d60: "#665513",
-  d80: "#332b0a",
+  l80: army.dark.l80,
+  l60: army.dark.l60,
+  l40: army.dark.l40,
+  l20: army.dark.l20,
+  light: army.dark.l20,
+  main: army.dark.main,
+  dark: army.dark.d20,
+  d20: army.dark.d20,
+  d40: army.dark.d40,
+  d60: army.dark.d60,
+  d80: army.dark.d80,
   contrastText: "#ffffff",
 };
 

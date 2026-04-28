@@ -1,7 +1,8 @@
 import type { ThemeOptions } from "@mui/material/styles";
 import type { Mode, ModePalettes } from "./ModePalettes.type";
 import { typography } from "./typography";
-import { muiButtonOverrides, muiIconButtonOverrides } from "../overrides";
+import { spacingBase } from "../../tokens/spacing";
+import { muiAvatarOverrides, muiButtonOverrides, muiChipOverrides, muiIconButtonOverrides } from "../overrides";
 
 /**
  * Create design tokens for the theme based on the mode (light or dark) and the provided palettes for each mode.
@@ -24,13 +25,15 @@ export const createDesignTokens = (
       // Custom option for box shadows (DX improvement)
       boxShadow: "1px 2px 3px 0px rgba(0,0,0,0.25)",
     },
-    spacing: 4, // Base spacing unit (4px) for consistent spacing throughout the app
+    spacing: spacingBase, // Base spacing unit (4px) for consistent spacing throughout the app
     shape: {
       borderRadius: 3, // Base border radius for components
     },
     typography: typography,
     components: {
+      MuiAvatar: muiAvatarOverrides(palettes, isDarkMode),
       MuiButton: muiButtonOverrides(palettes, isDarkMode),
+      MuiChip: muiChipOverrides(palettes, isDarkMode),
       MuiIconButton: muiIconButtonOverrides(palettes, isDarkMode),
     },
   };

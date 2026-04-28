@@ -1,4 +1,4 @@
-import palette from '../../theme/colors.json';
+import { colors as palette } from '../../tokens/colors';
 import css from './colors.module.css';
 import { toast, Toaster } from 'sonner';
 

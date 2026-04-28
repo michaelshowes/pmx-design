@@ -1,47 +1,46 @@
-// src/themes/dark.theme.js
-
 import type { PaletteColor } from "@mui/material/styles";
+import { primary } from "../../tokens/colors";
 import { createPalette } from "../base/createPalette";
+
+const blue = primary.blue;
 
 export const darkPalette: PaletteColor = {
   white: "#ffffff",
   black: "#000000",
-  l80: "#dbedff",
-  l60: "#d8dbff",
-  l40: "#94caff",
-  l20: "#71b8ff",
-  light: "#71b8ff",
-  main: "#4da6ff",
-  dark: "#3e85cc",
-  d20: "#3e85cc",
-  d40: "#2e6499",
-  d60: "#1f4266",
-  d80: "#0f2133",
+  l80: blue.dark.l80,
+  l60: blue.dark.l60,
+  l40: blue.dark.l40,
+  l20: blue.dark.l20,
+  light: blue.dark.l20,
+  main: blue.dark.main,
+  dark: blue.dark.d20,
+  d20: blue.dark.d20,
+  d40: blue.dark.d40,
+  d60: blue.dark.d60,
+  d80: blue.dark.d80,
   contrastText: "#ffffff",
 };
 
 export const lightPalette: PaletteColor = {
   white: "#ffffff",
   black: "#000000",
-  l80: "#cce3fa",
-  l60: "#99c7f5",
-  l40: "#66abf0",
-  l20: "#338feb",
-  light: "#338feb",
-  main: "#0073e6",
-  dark: "#005cb8",
-  d20: "#005cb8",
-  d40: "#00458a",
-  d60: "#002e5c",
-  d80: "#00172e",
+  l80: blue.light.l80,
+  l60: blue.light.l60,
+  l40: blue.light.l40,
+  l20: blue.light.l20,
+  light: blue.light.l20,
+  main: blue.light.main,
+  dark: blue.light.d20,
+  d20: blue.light.d20,
+  d40: blue.light.d40,
+  d60: blue.light.d60,
+  d80: blue.light.d80,
   contrastText: "#ffffff",
 };
 
 // Create the light and dark mode palettes using the createPalette function
 export const blueThemeLightMode = createPalette("light", lightPalette);
 export const blueThemeDarkMode = createPalette("dark", darkPalette);
-
-console.log("Blue Theme Light Mode Palette:", blueThemeLightMode);
 
 // Export the palettes as an object for easy access in theme creation
 export default {
