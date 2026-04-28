@@ -8,6 +8,13 @@ import Button from './Button';
 
 const meta: Meta<typeof Button> = {
 	component: Button,
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/design/PYFY4V4zLUXFscdEgXrLVu/PMx-Design-System--2-?node-id=7062-3676&m=dev'
+		},
+		a11y: { test: 'error' }
+	},
 	args: {
 		label: 'Button',
 		variant: 'contained',
