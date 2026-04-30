@@ -27,3 +27,5 @@ dist-ssr
 storybook-static
 .vercel
 .env*.local
+
+CLAUDE.md
