@@ -5,11 +5,12 @@ import {
 	AccordionDetails
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { fontFamily } from '../../../tokens/typography';
 
 type AccordionBaseProps = Pick<
 	MuiAccordionProps,
-	'defaultExpanded' | 'expanded' | 'onChange' | 'disabled' | 'children'
+	'defaultExpanded' | 'expanded' | 'onChange' | 'children'
 >;
 
 export interface AccordionProps extends AccordionBaseProps {
@@ -48,14 +49,15 @@ export default function Accordion({
 			{...rest}
 		>
 			<AccordionSummary
-				expandIcon={<ExpandMoreIcon />}
+				expandIcon={<ArrowDropDownIcon sx={{ fontSize: 30 }} />}
 				sx={{
 					px: '16px',
-					py: isPrimary ? '12px' : '4px',
+					py: isPrimary ? '20px' : '12px',
 					minHeight: 'unset',
 					'& .MuiAccordionSummary-content': {
 						margin: 0,
 						fontWeight: 500,
+						fontFamily: fontFamily.roboto,
 						fontSize: 16
 					},
 					'& .MuiAccordionSummary-expandIconWrapper': {
@@ -68,8 +70,9 @@ export default function Accordion({
 			<AccordionDetails
 				sx={{
 					px: '16px',
-					pt: 0,
-					pb: isPrimary ? '20px' : '12px'
+					pt: '0',
+					pb: isPrimary ? '20px' : '12px',
+					mt: isPrimary ? '-4px' : '4px'
 				}}
 			>
 				{children}

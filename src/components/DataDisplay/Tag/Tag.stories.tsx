@@ -27,19 +27,17 @@ const meta: Meta<typeof Tag> = {
 	},
 	argTypes: {
 		type: {
-			description:
-				'Figma: **Type** — Solid, Transparent, or Unfilled',
+			description: 'Solid, Transparent, or Unfilled',
 			options: ['solid', 'transparent', 'unfilled'],
 			control: { type: 'select' }
 		},
 		color: {
-			description:
-				'Figma: **Color** — Green, Yellow, Red, Blue, or Gray',
+			description: 'Green, Yellow, Red, Blue, or Gray',
 			options: ['green', 'yellow', 'red', 'blue', 'gray'],
 			control: { type: 'select' }
 		},
 		size: {
-			description: 'Figma: **Size** — Normal or Small',
+			description: 'Normal or Small',
 			options: ['normal', 'small'],
 			control: { type: 'inline-radio' }
 		},

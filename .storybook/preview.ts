@@ -13,6 +13,9 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 
+// Load local fonts (US Army, etc.)
+import '../src/fonts.css';
+
 import { withMuiTheme } from './with-mui-theme.decorator';
 
 export const parameters = {

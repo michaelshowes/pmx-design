@@ -27,8 +27,7 @@ const meta: Meta<typeof Gauge> = {
 	},
 	argTypes: {
 		type: {
-			description:
-				'Figma: **Type** — Semi Circle, Full Circle, or Status gauge',
+			description: 'Semi Circle, Full Circle, or Status gauge',
 			options: ['semi', 'circle', 'status'],
 			control: { type: 'select' }
 		},
@@ -45,7 +44,7 @@ const meta: Meta<typeof Gauge> = {
 			control: { type: 'boolean' }
 		},
 		status: {
-			description: 'Figma: **Status** — Used when type is "status"',
+			description: 'Used when type is "status"',
 			options: ['poor', 'fair', 'good'],
 			control: { type: 'select' },
 			if: { arg: 'type', eq: 'status' }

@@ -24,6 +24,7 @@ const permissions = [
 ];
 
 const meta: Meta<typeof TransferList> = {
+	title: 'Components/Inputs/Transfer List',
 	component: TransferList,
 	parameters: {
 		design: {

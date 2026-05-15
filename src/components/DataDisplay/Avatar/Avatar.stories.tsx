@@ -21,8 +21,7 @@ const meta: Meta<typeof Avatar> = {
 	},
 	args: {
 		label: 'JS',
-		size: 40,
-		variant: 'circular'
+		size: 40
 	},
 	argTypes: {
 		label: {
@@ -31,13 +30,8 @@ const meta: Meta<typeof Avatar> = {
 		},
 		size: {
 			description:
-				'Figma: **Size** — Minimum (40px) for dashboards, Maximum (60px) for account menu',
+				'Minimum (40px) for dashboards, Maximum (60px) for account menu',
 			control: { type: 'number', min: 40, max: 60 }
-		},
-		variant: {
-			description: 'Shape variant of the avatar',
-			options: ['circular', 'rounded', 'square'],
-			control: { type: 'radio' }
 		},
 		src: {
 			description: 'Image source URL (overrides label when set)',

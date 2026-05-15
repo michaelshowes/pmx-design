@@ -9,6 +9,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import TextField from './TextField';
 
 const meta: Meta<typeof TextField> = {
+	title: 'Components/Inputs/Text Field',
 	component: TextField,
 	parameters: {
 		design: {
@@ -54,7 +55,7 @@ const meta: Meta<typeof TextField> = {
 			control: { type: 'text' }
 		},
 		variant: {
-			description: 'Figma: **Type** — Outlined or Unlined (standard)',
+			description: 'Outlined or Unlined (standard)',
 			options: ['outlined', 'standard'],
 			control: {
 				type: 'inline-radio',
@@ -62,7 +63,7 @@ const meta: Meta<typeof TextField> = {
 			}
 		},
 		size: {
-			description: 'Figma: **Size** — Normal or Small',
+			description: 'Normal or Small',
 			options: ['medium', 'small'],
 			control: {
 				type: 'inline-radio',

@@ -19,5 +19,12 @@ export interface ButtonProps extends ButtonBaseProps {
 }
 
 export default function Button({ label, ...rest }: ButtonProps) {
-	return <MuiButton {...rest}>{label}</MuiButton>;
+	return (
+		<MuiButton
+			{...rest}
+			sx={{ lineHeight: '1.25' }}
+		>
+			{label}
+		</MuiButton>
+	);
 }

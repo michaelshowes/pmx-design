@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 import Plot from './Plot';
 
-const sampleLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+const sampleLabels = ['Jan', 'Feb', 'Mar'];
 
 const sampleSeries = [
 	{ label: 'Series 1', data: [44, 55, 41, 67, 22, 43] },
@@ -51,7 +51,7 @@ const meta: Meta<typeof Plot> = {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: 'https://www.figma.com/design/PYFY4V4zLUXFscdEgXrLVu/PMx-Design-System--2-?node-id=8321-14275'
+			url: 'https://www.figma.com/design/PYFY4V4zLUXFscdEgXrLVu/PMx-Design-System--2-?node-id=40000588-9186'
 		},
 		docs: {
 			description: {
@@ -69,13 +69,12 @@ const meta: Meta<typeof Plot> = {
 	argTypes: {
 		plotType: {
 			description:
-				'Figma: **Type** — Chart type: Bar, Line, Scatter, Stacked Bars, Pie, or Blank State',
+				'Chart type: Bar, Line, Scatter, Stacked Bars, Pie, or Blank State',
 			options: ['bar', 'line', 'scatter', 'stackedBars', 'pie', 'blank'],
 			control: { type: 'select' }
 		},
 		legend: {
-			description:
-				'Figma: **Key** — Legend position: None, Top, Bottom, Right, or Left',
+			description: 'Legend position: None, Top, Bottom, Right, or Left',
 			options: ['none', 'top', 'bottom', 'right', 'left'],
 			control: { type: 'select' }
 		},
@@ -224,110 +223,55 @@ export const BlankState: Story = {
 
 // ─── Showcase ────────────────────────────────────────────────────────────────
 
+const legendPositions = ['none', 'top', 'bottom', 'right', 'left'] as const;
+const legendLabels: Record<(typeof legendPositions)[number], string> = {
+	none: 'No Key',
+	top: 'Top Key',
+	bottom: 'Bottom Key',
+	right: 'Right Key',
+	left: 'Left Key'
+};
+
 export const AllVariants: Story = {
 	render: () => (
 		<Stack spacing={6}>
-			{/* Bar */}
+			{/* Bars */}
 			<Stack spacing={2}>
 				<Typography
 					variant='overline'
 					color='text.secondary'
 				>
-					Bar Chart
+					Bars
 				</Typography>
 				<Stack
 					direction='row'
-					spacing={4}
+					spacing={2}
 					alignItems='flex-start'
 					flexWrap='wrap'
 				>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
+					{legendPositions.map((pos) => (
+						<Stack
+							key={pos}
+							spacing={1}
+							alignItems='center'
 						>
-							No Legend
-						</Typography>
-						<Plot
-							plotType='bar'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-						/>
-					</Stack>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							Bottom Legend
-						</Typography>
-						<Plot
-							plotType='bar'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-							legend='bottom'
-						/>
-					</Stack>
-				</Stack>
-			</Stack>
-
-			{/* Line */}
-			<Stack spacing={2}>
-				<Typography
-					variant='overline'
-					color='text.secondary'
-				>
-					Line Chart
-				</Typography>
-				<Stack
-					direction='row'
-					spacing={4}
-					alignItems='flex-start'
-					flexWrap='wrap'
-				>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							No Legend
-						</Typography>
-						<Plot
-							plotType='line'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-						/>
-					</Stack>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							Top Legend
-						</Typography>
-						<Plot
-							plotType='line'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-							legend='top'
-						/>
-					</Stack>
+							<Typography
+								variant='caption'
+								color='text.disabled'
+								fontSize={10}
+							>
+								{legendLabels[pos]}
+							</Typography>
+							<Plot
+								plotType='bar'
+								series={sampleSeries}
+								xAxisLabels={sampleLabels}
+								legend={pos}
+								width={240}
+								height={200}
+							/>
+						</Stack>
+					))}
 				</Stack>
 			</Stack>
 
@@ -337,47 +281,76 @@ export const AllVariants: Story = {
 					variant='overline'
 					color='text.secondary'
 				>
-					Scatter Chart
+					Scatter
 				</Typography>
 				<Stack
 					direction='row'
-					spacing={4}
+					spacing={2}
 					alignItems='flex-start'
 					flexWrap='wrap'
 				>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
+					{legendPositions.map((pos) => (
+						<Stack
+							key={pos}
+							spacing={1}
+							alignItems='center'
 						>
-							No Legend
-						</Typography>
-						<Plot
-							plotType='scatter'
-							scatterSeries={sampleScatter}
-						/>
-					</Stack>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
+							<Typography
+								variant='caption'
+								color='text.disabled'
+								fontSize={10}
+							>
+								{legendLabels[pos]}
+							</Typography>
+							<Plot
+								plotType='scatter'
+								scatterSeries={sampleScatter}
+								legend={pos}
+								width={240}
+								height={200}
+							/>
+						</Stack>
+					))}
+				</Stack>
+			</Stack>
+
+			{/* Line */}
+			<Stack spacing={2}>
+				<Typography
+					variant='overline'
+					color='text.secondary'
+				>
+					Line
+				</Typography>
+				<Stack
+					direction='row'
+					spacing={2}
+					alignItems='flex-start'
+					flexWrap='wrap'
+				>
+					{legendPositions.map((pos) => (
+						<Stack
+							key={pos}
+							spacing={1}
+							alignItems='center'
 						>
-							Right Legend
-						</Typography>
-						<Plot
-							plotType='scatter'
-							scatterSeries={sampleScatter}
-							legend='right'
-						/>
-					</Stack>
+							<Typography
+								variant='caption'
+								color='text.disabled'
+								fontSize={10}
+							>
+								{legendLabels[pos]}
+							</Typography>
+							<Plot
+								plotType='line'
+								series={sampleSeries}
+								xAxisLabels={sampleLabels}
+								legend={pos}
+								width={240}
+								height={200}
+							/>
+						</Stack>
+					))}
 				</Stack>
 			</Stack>
 
@@ -391,95 +364,33 @@ export const AllVariants: Story = {
 				</Typography>
 				<Stack
 					direction='row'
-					spacing={4}
+					spacing={2}
 					alignItems='flex-start'
 					flexWrap='wrap'
 				>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
+					{legendPositions.map((pos) => (
+						<Stack
+							key={pos}
+							spacing={1}
+							alignItems='center'
 						>
-							No Legend
-						</Typography>
-						<Plot
-							plotType='stackedBars'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-						/>
-					</Stack>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							Bottom Legend
-						</Typography>
-						<Plot
-							plotType='stackedBars'
-							series={sampleSeries}
-							xAxisLabels={sampleLabels}
-							legend='bottom'
-						/>
-					</Stack>
-				</Stack>
-			</Stack>
-
-			{/* Pie */}
-			<Stack spacing={2}>
-				<Typography
-					variant='overline'
-					color='text.secondary'
-				>
-					Pie Chart
-				</Typography>
-				<Stack
-					direction='row'
-					spacing={4}
-					alignItems='flex-start'
-					flexWrap='wrap'
-				>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							No Legend
-						</Typography>
-						<Plot
-							plotType='pie'
-							pieData={samplePie}
-						/>
-					</Stack>
-					<Stack
-						spacing={1}
-						alignItems='center'
-					>
-						<Typography
-							variant='caption'
-							color='text.disabled'
-							fontSize={10}
-						>
-							Right Legend
-						</Typography>
-						<Plot
-							plotType='pie'
-							pieData={samplePie}
-							legend='right'
-						/>
-					</Stack>
+							<Typography
+								variant='caption'
+								color='text.disabled'
+								fontSize={10}
+							>
+								{legendLabels[pos]}
+							</Typography>
+							<Plot
+								plotType='stackedBars'
+								series={sampleSeries}
+								xAxisLabels={sampleLabels}
+								legend={pos}
+								width={240}
+								height={200}
+							/>
+						</Stack>
+					))}
 				</Stack>
 			</Stack>
 

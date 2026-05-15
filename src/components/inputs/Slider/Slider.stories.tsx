@@ -36,13 +36,13 @@ const meta: Meta<typeof Slider> = {
 	},
 	argTypes: {
 		size: {
-			description: 'Figma: **Size** — Medium or Small',
+			description: 'Medium or Small',
 			options: ['medium', 'small'],
 			control: { type: 'inline-radio' }
 		},
 		valueLabelDisplay: {
 			description:
-				'Figma: **Indicator** — `auto` shows on hover/focus, `on` always visible, `off` hidden',
+				'`auto` shows on hover/focus, `on` always visible, `off` hidden',
 			options: ['auto', 'on', 'off'],
 			control: { type: 'inline-radio' }
 		},
@@ -56,7 +56,9 @@ const meta: Meta<typeof Slider> = {
 		marks: { control: { type: 'boolean' } },
 		defaultValue: { control: { type: 'number' } },
 		color: {
-			options: ['primary', 'secondary', 'error', 'info', 'success', 'warning'],
+			description:
+				'Color of the slider — only primary is used in this design system',
+			options: ['primary'],
 			control: { type: 'select' }
 		},
 		orientation: {
@@ -219,43 +221,6 @@ export const Sizes: Story = {
 
 export const Disabled: Story = {
 	args: { defaultValue: 40, disabled: true }
-};
-
-// ─── Colors ───────────────────────────────────────────────────────────────────
-
-export const Colors: Story = {
-	decorators: [
-		(Story) => (
-			<Box sx={{ px: 3, py: 2, maxWidth: 500 }}>
-				<Story />
-			</Box>
-		)
-	],
-	render: () => (
-		<Stack spacing={3}>
-			{(
-				['primary', 'secondary', 'success', 'error', 'info', 'warning'] as const
-			).map((color) => (
-				<Stack
-					key={color}
-					spacing={0.5}
-				>
-					<Typography
-						variant='caption'
-						color='text.secondary'
-						textTransform='capitalize'
-					>
-						{color}
-					</Typography>
-					<Slider
-						defaultValue={40}
-						color={color}
-						valueLabelDisplay='auto'
-					/>
-				</Stack>
-			))}
-		</Stack>
-	)
 };
 
 // ─── All Types ────────────────────────────────────────────────────────────────

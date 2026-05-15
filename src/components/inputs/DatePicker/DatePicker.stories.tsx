@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 import DatePicker from './DatePicker';
 
 const meta: Meta<typeof DatePicker> = {
+	title: 'Components/Inputs/Date Picker',
 	component: DatePicker,
 	parameters: {
 		design: {

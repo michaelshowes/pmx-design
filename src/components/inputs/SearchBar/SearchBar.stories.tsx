@@ -19,6 +19,7 @@ const animals = [
 const recentSearches = ['Turtle', 'Poodle', 'Clown fish'];
 
 const meta: Meta<typeof SearchBar> = {
+	title: 'Components/Inputs/Search Bar',
 	component: SearchBar,
 	parameters: {
 		design: {
@@ -44,7 +45,7 @@ const meta: Meta<typeof SearchBar> = {
 			control: { type: 'text' }
 		},
 		size: {
-			description: 'Figma: **Size** — Normal (medium) or Small',
+			description: 'Normal (medium) or Small',
 			options: ['medium', 'small'],
 			control: {
 				type: 'inline-radio',

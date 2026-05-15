@@ -26,8 +26,7 @@ const meta: Meta<typeof Container> = {
 	},
 	argTypes: {
 		variant: {
-			description:
-				'Figma: **Variant** — Primary or Secondary',
+			description: 'Primary or Secondary',
 			options: ['primary', 'secondary'],
 			control: { type: 'inline-radio' }
 		},
@@ -37,12 +36,11 @@ const meta: Meta<typeof Container> = {
 		},
 		colorBar: {
 			description:
-				'Figma: **Color Bar** — A colored bar on the left side of the container. Pass a CSS color string.',
+				'A colored bar on the left side of the container. Pass a CSS color string. Only intended for use on the secondary variant.',
 			control: { type: 'color' }
 		},
 		showIcon: {
-			description:
-				'Figma: **Icon** — Whether to show an icon button in the title area',
+			description: 'Whether to show an icon button in the title area',
 			control: { type: 'boolean' }
 		}
 	}
@@ -53,12 +51,12 @@ type Story = StoryObj<typeof Container>;
 
 const sampleContent = (
 	<Typography
-		variant='body2'
-		color='text.secondary'
+		variant='body1'
+		sx={{ color: (theme) => theme.palette.scale.d80 }}
 	>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
-		mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-		mattis ligula consectetur, ultrices mauris.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.
+		Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis
+		ligula consectetur, ultrices mauris.
 	</Typography>
 );
 
@@ -104,6 +102,7 @@ export const SecondaryDefault: Story = {
 	name: 'Secondary: Default',
 	args: {
 		variant: 'secondary',
+		colorBar: '#198038',
 		children: sampleContent
 	}
 };
@@ -113,26 +112,7 @@ export const SecondaryWithFooter: Story = {
 	args: {
 		variant: 'secondary',
 		footer: sampleFooter,
-		children: sampleContent
-	}
-};
-
-// ─── Color Bar ───────────────────────────────────────────────────────────────
-
-export const ColorBarPurple: Story = {
-	name: 'Color Bar: Purple',
-	args: {
-		variant: 'secondary',
 		colorBar: '#6929c4',
-		children: sampleContent
-	}
-};
-
-export const ColorBarGreen: Story = {
-	name: 'Color Bar: Green',
-	args: {
-		variant: 'secondary',
-		colorBar: '#198038',
 		children: sampleContent
 	}
 };

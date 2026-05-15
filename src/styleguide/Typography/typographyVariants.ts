@@ -123,6 +123,33 @@ export const subtitleVariants: TypographyVariants = {
 	]
 };
 
+export const armyVariants: TypographyVariants = {
+	title: 'Army',
+	variants: [
+		{
+			variant: 'usArmyRegular',
+			font: 'US Army',
+			fontSize: t.usArmyRegular.fontSize,
+			fontWeight: t.usArmyRegular.fontWeight,
+			text: 'US Army Regular'
+		},
+		{
+			variant: 'usArmyBold',
+			font: 'US Army',
+			fontSize: t.usArmyBold.fontSize,
+			fontWeight: t.usArmyBold.fontWeight,
+			text: 'US Army Bold'
+		},
+		{
+			variant: 'usArmyLight',
+			font: 'US Army',
+			fontSize: t.usArmyLight.fontSize,
+			fontWeight: t.usArmyLight.fontWeight,
+			text: 'US Army Light'
+		}
+	]
+};
+
 export const componentVariants: TypographyVariants = {
 	title: 'Components',
 	variants: [
@@ -140,5 +167,6 @@ export const typographyVariants: TypographyVariants[] = [
 	headingVariants,
 	bodyVariants,
 	subtitleVariants,
-	componentVariants
+	componentVariants,
+	armyVariants
 ];
