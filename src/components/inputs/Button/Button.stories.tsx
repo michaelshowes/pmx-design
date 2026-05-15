@@ -66,6 +66,15 @@ const meta: Meta<typeof Button> = {
 		label: {
 			description: 'Button label text',
 			control: { type: 'text' }
+		},
+		startIcon: {
+			description: 'Icon rendered before the label (e.g. `<StarIcon />`)',
+			control: false
+		},
+		endIcon: {
+			description:
+				'Icon rendered after the label (e.g. `<ArrowForwardIcon />`)',
+			control: false
 		}
 	}
 };
@@ -106,6 +115,11 @@ export const Outlined: Story = {
 export const Text: Story = {
 	name: 'Type: Text',
 	args: { variant: 'text' }
+};
+
+export const TextWithIcon: Story = {
+	name: 'Type: Text with Icon',
+	args: { variant: 'text', startIcon: <StarIcon /> }
 };
 
 // ─── Color ───────────────────────────────────────────────────────────────────
@@ -268,6 +282,46 @@ export const AllVariants: Story = {
 								</Stack>
 							</Stack>
 						))}
+						<Stack
+							spacing={1}
+							alignItems='center'
+						>
+							<Typography
+								variant='caption'
+								color='text.secondary'
+							>
+								Text
+							</Typography>
+							<Stack
+								spacing={4}
+								alignItems='center'
+							>
+								<Typography
+									variant='caption'
+									color='text.disabled'
+									fontSize={10}
+								>
+									&nbsp;
+								</Typography>
+								<Button
+									label='Button'
+									variant='text'
+									size={size}
+								/>
+								<Button
+									label='Button'
+									variant='text'
+									size={size}
+									disabled
+								/>
+								<Button
+									label='Add'
+									variant='text'
+									size={size}
+									startIcon={<StarIcon />}
+								/>
+							</Stack>
+						</Stack>
 					</Stack>
 				</Stack>
 			))}
