@@ -1,0 +1,62 @@
+@font-face {
+	font-family: 'US Army';
+	src: url('./assets/fonts/USArmy-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'US Army';
+	src: url('./assets/fonts/USArmy-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'US Army';
+	src: url('./assets/fonts/USArmy-Light.ttf') format('truetype');
+	font-weight: light;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-200.woff2') format('woff2');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-300.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-500.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-600.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/fonts/roboto-700.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}

@@ -1,6 +1,10 @@
 import { useTheme } from '@mui/material';
 import {
-	Gauge as MuiGauge,
+	GaugeContainer,
+	GaugeValueArc,
+	GaugeReferenceArc,
+	GaugeValueText,
+	useGaugeState,
 	type GaugeProps as MuiGaugeProps,
 	gaugeClasses,
 } from '@mui/x-charts/Gauge';
@@ -16,6 +20,26 @@ export interface GaugeProps extends GaugeBaseProps {
 	status?: 'poor' | 'fair' | 'good';
 }
 
+/**
+ * Renders a dot at the tip of the active fill arc, creating a visible separator
+ * between the active and inactive arc sections.
+ */
+function ActiveDot({ color }: { color: string }) {
+	const { value, valueMin, valueMax, startAngle, endAngle, outerRadius, innerRadius, cx, cy } =
+		useGaugeState();
+
+	if (value === null) return null;
+
+	const t = (value - valueMin) / (valueMax - valueMin);
+	const angle = startAngle + t * (endAngle - startAngle);
+	const angleRad = (angle * Math.PI) / 180;
+	const r = (outerRadius + innerRadius) / 2;
+	const x = cx + r * Math.sin(angleRad);
+	const y = cy - r * Math.cos(angleRad);
+
+	return <circle cx={x} cy={y} r={(outerRadius - innerRadius) / 2} fill={color} />;
+}
+
 export default function Gauge({
 	type = 'semi',
 	label = true,
@@ -25,9 +49,9 @@ export default function Gauge({
 	valueMax = 100,
 	width,
 	height,
-	...rest
 }: GaugeProps) {
 	const theme = useTheme();
+	const isDark = theme.palette.mode === 'dark';
 
 	const isSemi = type === 'semi' || type === 'status';
 	const startAngle = isSemi ? -90 : 0;
@@ -41,6 +65,18 @@ export default function Gauge({
 
 	const activeColor =
 		type === 'status' ? statusColors[status] : theme.palette.primary.main;
+
+	// Status: layout.base (white) creates a clear separator between active and inactive arcs.
+	// Semi/circle: palette.primary.l80 (light) / palette.primary.d40 (dark) per Figma spec.
+	const dotColor =
+		type === 'status'
+			? theme.palette.layout.base
+			: isDark
+				? theme.palette.primary.d40
+				: theme.palette.primary.l80;
+
+	// palette.layout.11 (light) / palette.layout.16 (dark) per Figma spec
+	const inactiveColor = isDark ? theme.palette.layout[16] : theme.palette.layout[11];
 
 	const defaultWidth = 100;
 	const defaultHeight = isSemi ? 75 : 100;
@@ -61,7 +97,7 @@ export default function Gauge({
 			: value;
 
 	return (
-		<MuiGauge
+		<GaugeContainer
 			value={gaugeValue}
 			valueMin={valueMin}
 			valueMax={valueMax}
@@ -71,14 +107,9 @@ export default function Gauge({
 			height={height ?? defaultHeight}
 			innerRadius='70%'
 			outerRadius='100%'
-			text={label ? getText : undefined}
 			sx={{
-				[`& .${gaugeClasses.valueArc}`]: {
-					fill: activeColor,
-				},
-				[`& .${gaugeClasses.referenceArc}`]: {
-					fill: theme.palette.layout[11],
-				},
+				[`& .${gaugeClasses.valueArc}`]: { fill: activeColor },
+				[`& .${gaugeClasses.referenceArc}`]: { fill: inactiveColor },
 				[`& .${gaugeClasses.valueText}`]: {
 					fontSize: 16,
 					fontWeight: 500,
@@ -86,7 +117,11 @@ export default function Gauge({
 					fill: theme.palette.text.primary,
 				},
 			}}
-			{...rest}
-		/>
+		>
+			<GaugeReferenceArc />
+			<GaugeValueArc />
+			<ActiveDot color={dotColor} />
+			{label && <GaugeValueText text={getText} />}
+		</GaugeContainer>
 	);
 }

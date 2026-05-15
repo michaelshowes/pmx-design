@@ -25,7 +25,7 @@ const meta: Meta<typeof Accordion> = {
 	},
 	argTypes: {
 		variant: {
-			description: 'Figma: **Variant** — Primary or Secondary',
+			description: 'Primary or Secondary',
 			options: ['primary', 'secondary'],
 			control: { type: 'inline-radio' }
 		},
@@ -36,10 +36,6 @@ const meta: Meta<typeof Accordion> = {
 		defaultExpanded: {
 			description: 'Whether the accordion is expanded by default',
 			control: { type: 'boolean' }
-		},
-		disabled: {
-			description: 'Whether the accordion is disabled',
-			control: { type: 'boolean' }
 		}
 	}
 };
@@ -48,7 +44,10 @@ export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 const sampleContent = (
-	<Typography variant='body2'>
+	<Typography
+		variant='body1'
+		sx={{ color: (theme) => theme.palette.scale.d80 }}
+	>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.
 		Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis
 		ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam
@@ -90,17 +89,6 @@ export const SecondaryExpanded: Story = {
 	args: {
 		variant: 'secondary',
 		defaultExpanded: true,
-		children: sampleContent
-	}
-};
-
-// ─── Disabled ────────────────────────────────────────────────────────────────
-
-export const PrimaryDisabled: Story = {
-	name: 'Primary: Disabled',
-	args: {
-		variant: 'primary',
-		disabled: true,
 		children: sampleContent
 	}
 };
@@ -228,8 +216,11 @@ export const AllVariants: Story = {
 						title='Primary Accordion'
 						defaultExpanded
 					>
-						<Stack spacing={2}>
-							<Typography variant='body2'>
+						<Stack sx={{ gap: 2 }}>
+							<Typography
+								variant='body1'
+								sx={{ color: (theme) => theme.palette.scale.d80 }}
+							>
 								Content above the nested accordion.
 							</Typography>
 							<Accordion

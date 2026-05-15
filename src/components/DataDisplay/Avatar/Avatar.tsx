@@ -3,7 +3,7 @@ import {
 	type AvatarProps as MuiAvatarProps
 } from '@mui/material';
 
-type AvatarBaseProps = Pick<MuiAvatarProps, 'src' | 'alt' | 'variant'>;
+type AvatarBaseProps = Pick<MuiAvatarProps, 'src' | 'alt'>;
 
 export interface AvatarProps extends AvatarBaseProps {
 	label?: string;

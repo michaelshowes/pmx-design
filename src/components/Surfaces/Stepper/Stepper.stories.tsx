@@ -29,12 +29,11 @@ const meta: Meta<typeof Stepper> = {
 			control: { type: 'object' }
 		},
 		activeStep: {
-			description:
-				'Figma: **Active Step** — Zero-based index of the current active step',
+			description: 'Zero-based index of the current active step',
 			control: { type: 'number' }
 		},
 		orientation: {
-			description: 'Figma: **Orientation** — Horizontal or Vertical',
+			description: 'Horizontal or Vertical',
 			options: ['horizontal', 'vertical'],
 			control: { type: 'inline-radio' }
 		}

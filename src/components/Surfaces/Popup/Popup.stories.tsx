@@ -30,13 +30,11 @@ const meta: Meta<typeof Popup> = {
 			control: { type: 'text' }
 		},
 		linkText: {
-			description:
-				'Figma: **Link** — Optional link text displayed in the title area',
+			description: 'Optional link text displayed in the title area',
 			control: { type: 'text' }
 		},
 		showCloseIcon: {
-			description:
-				'Figma: **Icon** — Whether to show a close icon button in the title area',
+			description: 'Whether to show a close icon button in the title area',
 			control: { type: 'boolean' }
 		}
 	}
@@ -47,12 +45,12 @@ type Story = StoryObj<typeof Popup>;
 
 const sampleContent = (
 	<Typography
-		variant='body2'
-		color='text.secondary'
+		variant='body1'
+		sx={{ color: (theme) => theme.palette.scale.d80 }}
 	>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
-		mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-		mattis ligula consectetur, ultrices mauris.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.
+		Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis
+		ligula consectetur, ultrices mauris.
 	</Typography>
 );
 
@@ -142,9 +140,7 @@ export const AllVariants: Story = {
 							Default
 						</Typography>
 						<Box sx={{ width: 329 }}>
-							<Popup title='Pop-up Title'>
-								{sampleContent}
-							</Popup>
+							<Popup title='Pop-up Title'>{sampleContent}</Popup>
 						</Box>
 					</Stack>
 					<Stack

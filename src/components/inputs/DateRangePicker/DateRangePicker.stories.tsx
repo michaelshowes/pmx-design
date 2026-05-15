@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import DateRangePicker from './DateRangePicker';
 
 const meta: Meta<typeof DateRangePicker> = {
+	title: 'Components/Inputs/Date Range Picker',
 	component: DateRangePicker,
 	parameters: {
 		design: {

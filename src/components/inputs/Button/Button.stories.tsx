@@ -25,13 +25,19 @@ const meta: Meta<typeof Button> = {
 	},
 	argTypes: {
 		variant: {
-			description: 'Figma: **Type** — Primary (filled) or Outlined',
+			description: 'Primary (Filled), Outlined, or Text',
 			options: ['contained', 'outlined', 'text'],
-			control: { type: 'radio' }
+			control: {
+				type: 'radio',
+				labels: {
+					contained: 'Primary (Filled)',
+					outlined: 'Outlined',
+					text: 'Text'
+				}
+			}
 		},
 		color: {
-			description:
-				'Figma: **Color** — Primary (Blue), Danger (Red), Confirmation (Green)',
+			description: 'Primary (Blue), Danger (Red), Confirmation (Green)',
 			options: ['primary', 'error', 'success'],
 			control: {
 				type: 'select',
@@ -43,7 +49,7 @@ const meta: Meta<typeof Button> = {
 			}
 		},
 		size: {
-			description: 'Figma: **Size** — Normal (36px) or Small (30px)',
+			description: 'Normal (36px) or Small (30px)',
 			options: ['medium', 'small'],
 			control: {
 				type: 'inline-radio',
@@ -80,7 +86,7 @@ export const Default: Story = {
 // ─── Type ────────────────────────────────────────────────────────────────────
 
 export const Primary: Story = {
-	name: 'Type: Primary (Contained)',
+	name: 'Type: Primary',
 	args: { variant: 'contained' },
 	play: async ({ canvas }) => {
 		const button = canvas.getByRole('button', { name: 'Button' });
@@ -123,7 +129,7 @@ export const SizeSmall: Story = {
 
 // ─── State: Disabled ─────────────────────────────────────────────────────────
 
-export const DisabledContained: Story = {
+export const DisabledPrimary: Story = {
 	name: 'State: Disabled — Primary',
 	args: { disabled: true },
 	play: async ({ canvas }) => {
@@ -196,7 +202,7 @@ export const AllVariants: Story = {
 									spacing={1}
 								>
 									<Stack
-										spacing={1}
+										spacing={4}
 										alignItems='center'
 									>
 										<Typography
@@ -204,7 +210,7 @@ export const AllVariants: Story = {
 											color='text.disabled'
 											fontSize={10}
 										>
-											Contained
+											Primary
 										</Typography>
 										<Button
 											label='Button'
@@ -228,7 +234,7 @@ export const AllVariants: Story = {
 										/>
 									</Stack>
 									<Stack
-										spacing={1}
+										spacing={4}
 										alignItems='center'
 									>
 										<Typography

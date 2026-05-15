@@ -26,8 +26,7 @@ const meta: Meta<typeof Card> = {
 	},
 	argTypes: {
 		variant: {
-			description:
-				'Figma: **Variant** — Primary or Secondary',
+			description: 'Primary or Secondary',
 			options: ['primary', 'secondary'],
 			control: { type: 'inline-radio' }
 		},
@@ -36,8 +35,7 @@ const meta: Meta<typeof Card> = {
 			control: { type: 'text' }
 		},
 		selected: {
-			description:
-				'Figma: **State=Selected** — Whether the card shows a selected border',
+			description: 'Whether the card shows a selected border',
 			control: { type: 'boolean' }
 		}
 	}
@@ -48,12 +46,12 @@ type Story = StoryObj<typeof Card>;
 
 const sampleContent = (
 	<Typography
-		variant='body2'
-		color='text.secondary'
+		variant='body1'
+		sx={{ color: (theme) => theme.palette.scale.d80 }}
 	>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
-		mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-		mattis ligula consectetur, ultrices mauris.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.
+		Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis
+		ligula consectetur, ultrices mauris.
 	</Typography>
 );
 

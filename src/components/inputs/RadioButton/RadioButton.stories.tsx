@@ -12,6 +12,7 @@ import {
 import RadioButton from './RadioButton';
 
 const meta: Meta<typeof RadioButton> = {
+	title: 'Components/Inputs/Radio Button',
 	component: RadioButton,
 	parameters: {
 		design: {
@@ -37,21 +38,15 @@ const meta: Meta<typeof RadioButton> = {
 			control: { type: 'text' }
 		},
 		color: {
-			description: 'Color of the radio button',
-			options: [
-				'primary',
-				'secondary',
-				'success',
-				'error',
-				'info',
-				'warning',
-				'default'
-			],
+			description:
+				'Color of the radio button — only primary is used in this design system',
+			options: ['primary'],
 			control: { type: 'select' }
 		},
 		size: {
-			description: 'Size of the radio button',
-			options: ['small', 'medium'],
+			description:
+				'Size of the radio button — only medium is used in this design system',
+			options: ['medium'],
 			control: { type: 'inline-radio' }
 		},
 		disabled: {
@@ -121,64 +116,6 @@ export const AllStates: Story = {
 				}
 				label='Disabled Selected'
 			/>
-		</Stack>
-	)
-};
-
-// ─── Size ─────────────────────────────────────────────────────────────────────
-
-export const Sizes: Story = {
-	render: () => (
-		<Stack
-			direction='row'
-			spacing={3}
-			alignItems='center'
-		>
-			<FormControlLabel
-				control={
-					<MuiRadio
-						size='small'
-						defaultChecked
-					/>
-				}
-				label='Small'
-			/>
-			<FormControlLabel
-				control={
-					<MuiRadio
-						size='medium'
-						defaultChecked
-					/>
-				}
-				label='Medium'
-			/>
-		</Stack>
-	)
-};
-
-// ─── Color ────────────────────────────────────────────────────────────────────
-
-export const Colors: Story = {
-	render: () => (
-		<Stack
-			direction='row'
-			spacing={2}
-			flexWrap='wrap'
-		>
-			{(
-				['primary', 'secondary', 'success', 'error', 'info', 'warning'] as const
-			).map((color) => (
-				<FormControlLabel
-					key={color}
-					control={
-						<MuiRadio
-							color={color}
-							defaultChecked
-						/>
-					}
-					label={color.charAt(0).toUpperCase() + color.slice(1)}
-				/>
-			))}
 		</Stack>
 	)
 };

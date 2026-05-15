@@ -1,16 +1,24 @@
 import { Box, Typography, type BoxProps } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-type ContainerBaseProps = Pick<BoxProps, 'children'>;
-
-export interface ContainerProps extends ContainerBaseProps {
+type ContainerBaseProps = Pick<BoxProps, 'children'> & {
 	title?: string;
-	variant?: 'primary' | 'secondary';
-	colorBar?: string;
 	showIcon?: boolean;
 	onIconClick?: () => void;
 	footer?: React.ReactNode;
-}
+};
+
+type PrimaryProps = ContainerBaseProps & {
+	variant?: 'primary';
+	colorBar?: never;
+};
+
+type SecondaryProps = ContainerBaseProps & {
+	variant: 'secondary';
+	colorBar?: string;
+};
+
+export type ContainerProps = PrimaryProps | SecondaryProps;
 
 export default function Container({
 	title,

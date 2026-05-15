@@ -52,9 +52,9 @@ export const muiChipOverrides = (
           boxShadow: "1px 2px 2px 0px rgba(0,0,0,0.15)",
         },
       },
-      // Outlined hover
+      // Outlined hover — only applies to clickable chips, not plain chips
       outlinedDefault: {
-        "&:hover": {
+        "&.MuiChip-clickable:hover": {
           boxShadow: "1px 2px 2px 0px rgba(0,0,0,0.15)",
         },
       },

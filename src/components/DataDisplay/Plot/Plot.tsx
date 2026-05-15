@@ -88,6 +88,13 @@ export default function Plot({
 
 	const legendSlotProps = { legend: getLegendProps(legend) } as Record<string, unknown>;
 
+	const legendMarkSx = {
+		'& .MuiChartsLabelMark-root': {
+			width: 12,
+			height: 12,
+		},
+	};
+
 	if (plotType === 'blank') {
 		return (
 			<Stack
@@ -133,10 +140,11 @@ export default function Plot({
 
 		return (
 			<PieChart
-				series={[{ data: pieSeries }]}
+				series={[{ data: pieSeries, labelMarkType: 'circle' as const }]}
 				width={width}
 				height={height}
 				slotProps={legendSlotProps}
+				sx={legendMarkSx}
 			/>
 		);
 	}
@@ -147,6 +155,7 @@ export default function Plot({
 				label: s.label,
 				data: s.data,
 				color: colors[i % colors.length],
+				labelMarkType: 'circle' as const,
 			})
 		);
 
@@ -157,6 +166,7 @@ export default function Plot({
 				height={height}
 				yAxis={yAxis}
 				slotProps={legendSlotProps}
+				sx={legendMarkSx}
 			/>
 		);
 	}
@@ -166,6 +176,7 @@ export default function Plot({
 			label: s.label,
 			data: s.data,
 			color: colors[i % colors.length],
+			labelMarkType: 'circle' as const,
 		}));
 
 		return (
@@ -176,6 +187,7 @@ export default function Plot({
 				width={width}
 				height={height}
 				slotProps={legendSlotProps}
+				sx={legendMarkSx}
 			>
 				{referenceLine != null && (
 					<ChartsReferenceLine y={referenceLine} />
@@ -190,16 +202,19 @@ export default function Plot({
 		data: s.data,
 		color: colors[i % colors.length],
 		stack: plotType === 'stackedBars' ? 'total' : undefined,
+		labelMarkType: 'circle' as const,
 	}));
 
 	return (
 		<BarChart
+			borderRadius={4}
 			series={chartSeries}
 			xAxis={xAxis}
 			yAxis={yAxis}
 			width={width}
 			height={height}
 			slotProps={legendSlotProps}
+			sx={legendMarkSx}
 		>
 			{referenceLine != null && (
 				<ChartsReferenceLine y={referenceLine} />

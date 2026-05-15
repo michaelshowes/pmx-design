@@ -36,7 +36,7 @@ export default function Tag({
 				border: theme.palette.success.d20,
 			},
 			unfilled: {
-				bg: theme.palette.layout.base,
+				bg: 'transparent',
 				text: theme.palette.success.d20,
 				border: theme.palette.success.d20,
 			},
@@ -53,7 +53,7 @@ export default function Tag({
 				border: theme.palette.warning.d40,
 			},
 			unfilled: {
-				bg: theme.palette.layout.base,
+				bg: 'transparent',
 				text: theme.palette.warning.d40,
 				border: theme.palette.warning.d40,
 			},
@@ -65,12 +65,12 @@ export default function Tag({
 				border: 'none',
 			},
 			transparent: {
-				bg: theme.palette.error.l80,
+				bg: theme.palette.error.l90,
 				text: theme.palette.text.primary,
 				border: theme.palette.error.d20,
 			},
 			unfilled: {
-				bg: theme.palette.layout.base,
+				bg: 'transparent',
 				text: theme.palette.error.d20,
 				border: theme.palette.error.d20,
 			},
@@ -87,7 +87,7 @@ export default function Tag({
 				border: theme.palette.info.d40,
 			},
 			unfilled: {
-				bg: theme.palette.layout.base,
+				bg: 'transparent',
 				text: theme.palette.info.d40,
 				border: theme.palette.info.d40,
 			},
@@ -104,7 +104,7 @@ export default function Tag({
 				border: theme.palette.scale.main,
 			},
 			unfilled: {
-				bg: theme.palette.layout.base,
+				bg: 'transparent',
 				text: theme.palette.text.secondary,
 				border: theme.palette.scale.main,
 			},
@@ -124,9 +124,9 @@ export default function Tag({
 				py: isNormal ? '4px' : '2px',
 				borderRadius: '8px',
 				backgroundColor: colors.bg,
-				border:
+				boxShadow:
 					colors.border !== 'none'
-						? `1px solid ${colors.border}`
+						? `inset 0 0 0 1px ${colors.border}`
 						: 'none',
 			}}
 		>

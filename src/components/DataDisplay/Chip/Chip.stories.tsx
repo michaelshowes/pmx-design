@@ -31,13 +31,12 @@ const meta: Meta<typeof Chip> = {
 	},
 	argTypes: {
 		variant: {
-			description: 'Figma: **Filled** — Outlined (default) or Filled',
+			description: 'Outlined (default) or Filled',
 			options: ['outlined', 'filled'],
 			control: { type: 'inline-radio' }
 		},
 		color: {
-			description:
-				'Figma: **Selected** — Default (gray) or Primary (blue, selected state)',
+			description: 'Default (gray) or Primary (blue, selected state)',
 			options: ['default', 'primary'],
 			control: {
 				type: 'select',

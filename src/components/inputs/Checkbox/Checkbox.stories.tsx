@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
-	Checkbox as MuiCheckbox,
 	FormControlLabel,
 	FormGroup,
 	FormLabel,
@@ -39,21 +38,15 @@ const meta: Meta<typeof Checkbox> = {
 			control: { type: 'text' }
 		},
 		color: {
-			description: 'Color of the checkbox',
-			options: [
-				'primary',
-				'secondary',
-				'success',
-				'error',
-				'info',
-				'warning',
-				'default'
-			],
+			description:
+				'Color of the checkbox — only primary is used in this design system',
+			options: ['primary'],
 			control: { type: 'select' }
 		},
 		size: {
-			description: 'Size of the checkbox',
-			options: ['small', 'medium'],
+			description:
+				'Size of the checkbox — only medium is used in this design system',
+			options: ['medium'],
 			control: { type: 'inline-radio' }
 		},
 		checked: {
@@ -105,64 +98,6 @@ export const Indeterminate: Story = {
 	args: { indeterminate: true, label: 'Indeterminate' }
 };
 
-// ─── Size ─────────────────────────────────────────────────────────────────────
-
-export const Sizes: Story = {
-	render: () => (
-		<Stack
-			direction='row'
-			spacing={3}
-			alignItems='center'
-		>
-			<FormControlLabel
-				control={
-					<MuiCheckbox
-						size='small'
-						defaultChecked
-					/>
-				}
-				label='Small'
-			/>
-			<FormControlLabel
-				control={
-					<MuiCheckbox
-						size='medium'
-						defaultChecked
-					/>
-				}
-				label='Medium'
-			/>
-		</Stack>
-	)
-};
-
-// ─── Color ────────────────────────────────────────────────────────────────────
-
-export const Colors: Story = {
-	render: () => (
-		<Stack
-			direction='row'
-			spacing={2}
-			flexWrap='wrap'
-		>
-			{(
-				['primary', 'secondary', 'success', 'error', 'info', 'warning'] as const
-			).map((color) => (
-				<FormControlLabel
-					key={color}
-					control={
-						<MuiCheckbox
-							color={color}
-							defaultChecked
-						/>
-					}
-					label={color.charAt(0).toUpperCase() + color.slice(1)}
-				/>
-			))}
-		</Stack>
-	)
-};
-
 // ─── All States ───────────────────────────────────────────────────────────────
 
 export const AllStates: Story = {
@@ -180,24 +115,24 @@ export const AllStates: Story = {
 				flexWrap='wrap'
 			>
 				<FormControlLabel
-					control={<MuiCheckbox />}
+					control={<Checkbox />}
 					label='Unchecked'
 				/>
 				<FormControlLabel
-					control={<MuiCheckbox defaultChecked />}
+					control={<Checkbox defaultChecked />}
 					label='Checked'
 				/>
 				<FormControlLabel
-					control={<MuiCheckbox indeterminate />}
+					control={<Checkbox indeterminate />}
 					label='Indeterminate'
 				/>
 				<FormControlLabel
-					control={<MuiCheckbox disabled />}
+					control={<Checkbox disabled />}
 					label='Disabled'
 				/>
 				<FormControlLabel
 					control={
-						<MuiCheckbox
+						<Checkbox
 							disabled
 							checked
 						/>
@@ -206,7 +141,7 @@ export const AllStates: Story = {
 				/>
 				<FormControlLabel
 					control={
-						<MuiCheckbox
+						<Checkbox
 							disabled
 							indeterminate
 						/>
@@ -227,23 +162,23 @@ export const CheckboxGroup: Story = {
 				<FormLabel>Pizza Toppings</FormLabel>
 				<FormGroup>
 					<FormControlLabel
-						control={<MuiCheckbox defaultChecked />}
+						control={<Checkbox defaultChecked />}
 						label='Cheese'
 					/>
 					<FormControlLabel
-						control={<MuiCheckbox defaultChecked />}
+						control={<Checkbox defaultChecked />}
 						label='Pepperoni'
 					/>
 					<FormControlLabel
-						control={<MuiCheckbox />}
+						control={<Checkbox />}
 						label='Sausage'
 					/>
 					<FormControlLabel
-						control={<MuiCheckbox />}
+						control={<Checkbox />}
 						label='Bell Pepper'
 					/>
 					<FormControlLabel
-						control={<MuiCheckbox defaultChecked />}
+						control={<Checkbox defaultChecked />}
 						label='Basil'
 					/>
 				</FormGroup>
@@ -277,7 +212,7 @@ function IndeterminateGroupDemo() {
 			<FormControlLabel
 				label='All toppings'
 				control={
-					<MuiCheckbox
+					<Checkbox
 						checked={allChecked}
 						indeterminate={someChecked}
 						onChange={handleParent}
@@ -290,7 +225,7 @@ function IndeterminateGroupDemo() {
 						key={topping}
 						label={topping}
 						control={
-							<MuiCheckbox
+							<Checkbox
 								checked={checked[i]}
 								onChange={() => handleChild(i)}
 							/>

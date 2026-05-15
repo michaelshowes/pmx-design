@@ -41,7 +41,7 @@ const meta: Meta<typeof Select> = {
 			control: { type: 'text' }
 		},
 		variant: {
-			description: 'Figma: **Type** — Outlined or Unlined (standard)',
+			description: 'Outlined or Unlined (standard)',
 			options: ['outlined', 'standard'],
 			control: {
 				type: 'inline-radio',
@@ -49,7 +49,7 @@ const meta: Meta<typeof Select> = {
 			}
 		},
 		size: {
-			description: 'Figma: **Size** — Normal or Small',
+			description: 'Normal or Small',
 			options: ['medium', 'small'],
 			control: {
 				type: 'inline-radio',

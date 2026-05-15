@@ -2,7 +2,7 @@ import type { ThemeOptions } from "@mui/material/styles";
 import type { Mode, ModePalettes } from "./ModePalettes.type";
 import { typography } from "./typography";
 import { spacingBase } from "../../tokens/spacing";
-import { muiAvatarOverrides, muiButtonOverrides, muiChipOverrides, muiIconButtonOverrides } from "../overrides";
+import { muiAvatarOverrides, muiButtonGroupOverrides, muiButtonOverrides, muiChipOverrides, muiFabOverrides, muiIconButtonOverrides, muiToggleButtonOverrides } from "../overrides";
 
 /**
  * Create design tokens for the theme based on the mode (light or dark) and the provided palettes for each mode.
@@ -33,8 +33,11 @@ export const createDesignTokens = (
     components: {
       MuiAvatar: muiAvatarOverrides(palettes, isDarkMode),
       MuiButton: muiButtonOverrides(palettes, isDarkMode),
+      MuiButtonGroup: muiButtonGroupOverrides(),
       MuiChip: muiChipOverrides(palettes, isDarkMode),
       MuiIconButton: muiIconButtonOverrides(palettes, isDarkMode),
+      MuiFab: muiFabOverrides(palettes, isDarkMode),
+      MuiToggleButton: muiToggleButtonOverrides(palettes, isDarkMode),
     },
   };
 };

@@ -37,16 +37,8 @@ const meta: Meta<typeof Switch> = {
 			control: { type: 'text' }
 		},
 		color: {
-			description: 'Color of the switch',
-			options: [
-				'primary',
-				'secondary',
-				'success',
-				'error',
-				'info',
-				'warning',
-				'default'
-			],
+			description: 'Color of the switch — only primary is used in this design system',
+			options: ['primary'],
 			control: { type: 'select' }
 		},
 		size: {
@@ -156,32 +148,6 @@ export const Sizes: Story = {
 	)
 };
 
-// ─── Colors ───────────────────────────────────────────────────────────────────
-
-export const Colors: Story = {
-	render: () => (
-		<Stack
-			direction='row'
-			spacing={2}
-			flexWrap='wrap'
-		>
-			{(
-				['primary', 'secondary', 'success', 'error', 'info', 'warning'] as const
-			).map((color) => (
-				<FormControlLabel
-					key={color}
-					control={
-						<MuiSwitch
-							color={color}
-							defaultChecked
-						/>
-					}
-					label={color.charAt(0).toUpperCase() + color.slice(1)}
-				/>
-			))}
-		</Stack>
-	)
-};
 
 // ─── Switch Group ─────────────────────────────────────────────────────────────
 

@@ -3,7 +3,7 @@ import {
 	type StepperProps as MuiStepperProps,
 	Step,
 	StepLabel,
-	StepConnector,
+	StepConnector
 } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import CheckIcon from '@mui/icons-material/Check';
@@ -20,18 +20,18 @@ const CustomConnector = styled(StepConnector)(({ theme }) => ({
 	'& .MuiStepConnector-line': {
 		borderColor: theme.palette.divider,
 		borderTopWidth: 1,
-		minWidth: 20,
+		minWidth: 20
 	},
 	'&.MuiStepConnector-vertical .MuiStepConnector-line': {
 		borderLeftWidth: 1,
-		minHeight: 20,
-	},
+		minHeight: 20
+	}
 }));
 
 function StepIconComponent({
 	active,
 	completed,
-	icon,
+	icon
 }: {
 	active?: boolean;
 	completed?: boolean;
@@ -49,13 +49,13 @@ function StepIconComponent({
 					backgroundColor: theme.palette.primary.main,
 					display: 'flex',
 					alignItems: 'center',
-					justifyContent: 'center',
+					justifyContent: 'center'
 				}}
 			>
 				<CheckIcon
 					sx={{
 						fontSize: 20,
-						color: theme.palette.common.white,
+						color: theme.palette.common.white
 					}}
 				/>
 			</Box>
@@ -73,7 +73,7 @@ function StepIconComponent({
 					border: `1px solid ${theme.palette.primary.d20}`,
 					display: 'flex',
 					alignItems: 'center',
-					justifyContent: 'center',
+					justifyContent: 'center'
 				}}
 			>
 				<Box
@@ -82,7 +82,7 @@ function StepIconComponent({
 						fontWeight: 500,
 						fontSize: 16,
 						color: theme.palette.primary.d20,
-						lineHeight: 1,
+						lineHeight: 1
 					}}
 				>
 					{icon}
@@ -100,7 +100,7 @@ function StepIconComponent({
 				backgroundColor: theme.palette.scale.l40,
 				display: 'flex',
 				alignItems: 'center',
-				justifyContent: 'center',
+				justifyContent: 'center'
 			}}
 		>
 			<Box
@@ -109,7 +109,7 @@ function StepIconComponent({
 					fontWeight: 400,
 					fontSize: 16,
 					color: theme.palette.text.secondary,
-					lineHeight: 1,
+					lineHeight: 1
 				}}
 			>
 				{icon}
@@ -121,7 +121,7 @@ function StepIconComponent({
 export default function Stepper({
 	steps,
 	activeStep = 0,
-	orientation = 'horizontal',
+	orientation = 'horizontal'
 }: StepperProps) {
 	const theme = useTheme();
 
@@ -137,30 +137,39 @@ export default function Stepper({
 					color: theme.palette.text.secondary,
 					'&.Mui-active': {
 						fontWeight: 500,
-						color: theme.palette.text.primary,
+						color: theme.palette.text.primary
 					},
 					'&.Mui-completed': {
 						fontWeight: 400,
-						color: theme.palette.text.primary,
-					},
+						color: theme.palette.text.primary
+					}
 				},
 				'& .MuiStep-root': {
 					cursor: 'default',
+					width: 'fit-content'
 				},
 				'& .MuiStep-root.Mui-completed': {
 					cursor: 'pointer',
-					'&:hover .MuiStepLabel-root': {
-						backgroundColor: theme.palette.scale.l60,
+					'& .MuiStepLabel-root': {
+						px: 2,
+						py: 1,
+						mx: -2,
+						my: 1,
 						borderRadius: '4px',
+						backgroundColor: 'transparent',
+						transition: 'background-color 0.1s ease-in-out'
 					},
-				},
+					'&:hover .MuiStepLabel-root': {
+						backgroundColor: theme.palette.scale.l60
+					}
+				}
 			}}
 		>
 			{steps.map((label) => (
 				<Step key={label}>
 					<StepLabel
 						slots={{
-							stepIcon: StepIconComponent,
+							stepIcon: StepIconComponent
 						}}
 					>
 						{label}
