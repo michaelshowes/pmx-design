@@ -31,6 +31,15 @@ export const createDesignTokens = (
     },
     typography: typography,
     components: {
+      MuiFormLabel: {
+        styleOverrides: {
+          root: {
+            '&.Mui-focused': {
+              color: 'inherit'
+            }
+          }
+        }
+      },
       MuiAvatar: muiAvatarOverrides(palettes, isDarkMode),
       MuiButton: muiButtonOverrides(palettes, isDarkMode),
       MuiButtonGroup: muiButtonGroupOverrides(),
