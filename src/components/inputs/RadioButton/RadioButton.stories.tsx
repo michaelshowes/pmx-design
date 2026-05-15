@@ -28,26 +28,12 @@ const meta: Meta<typeof RadioButton> = {
 	},
 	args: {
 		label: 'Label',
-		color: 'primary',
-		size: 'medium',
 		disabled: false
 	},
 	argTypes: {
 		label: {
 			description: 'Label text rendered via `FormControlLabel`',
 			control: { type: 'text' }
-		},
-		color: {
-			description:
-				'Color of the radio button — only primary is used in this design system',
-			options: ['primary'],
-			control: { type: 'select' }
-		},
-		size: {
-			description:
-				'Size of the radio button — only medium is used in this design system',
-			options: ['medium'],
-			control: { type: 'inline-radio' }
 		},
 		disabled: {
 			description: 'Disabled state',
